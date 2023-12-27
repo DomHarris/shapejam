@@ -4410,7 +4410,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.9
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5441,7 +5441,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a5d05bcde04e7fa87cc351162607a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  minDamage: 1
+  maxDamage: 5
+  minSize: 0.5
+  maxSize: 0.9
 --- !u!114 &819883426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5454,6 +5457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 152311372bc13454b8decf454008ac3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minStartSize: 0.5
+  maxStartSize: 0.9
+  chargeTime: 1
+  <chargeDelay>k__BackingField: 0.5
 --- !u!1 &885290499
 GameObject:
   m_ObjectHideFlags: 0
@@ -11153,6 +11160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1699641502}
   - component: {fileID: 1699641503}
+  - component: {fileID: 1699641504}
   m_Layer: 0
   m_Name: Pointer
   m_TagString: Untagged
@@ -11229,6 +11237,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1699641504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699641501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a99ee42867ce43f5a69cd56d9e896c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minScale: 0.4
+  maxScale: 0.6
+  compressScale: 0
 --- !u!1 &1878741893
 GameObject:
   m_ObjectHideFlags: 0
@@ -11522,7 +11545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charges: 5
   shoot: {fileID: 819883426}
-  timeToRecharge: 1
+  timeToRecharge: 0.75
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

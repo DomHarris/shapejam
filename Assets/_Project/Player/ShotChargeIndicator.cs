@@ -7,19 +7,20 @@ public class ShotChargeIndicator : MonoBehaviour
     [SerializeField] private float minScale = 1f, maxScale = 2f, compressScale = 0.5f;
 
     private PlayerShoot _shoot;
+    private float _scale;
 
     private void Start()
     {
-        _shoot = GetComponentInParent<PlayerShoot>();
+        _scale = transform.localScale.x;
+        _shoot = FindFirstObjectByType<PlayerShoot>();
         _shoot.Charge += OnCharge;
         _shoot.Fire += OnFire;
     }
 
-    private async void OnFire()
+    private void OnFire()
     {
-        await Task.Yield();
         transform.localScale = Vector3.one * compressScale;
-        transform.DOScale(1, _shoot.chargeDelay)
+        transform.DOScale(_scale, _shoot.chargeDelay)
             .SetEase(Ease.OutQuint);
     }
 
