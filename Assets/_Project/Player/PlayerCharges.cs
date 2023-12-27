@@ -3,44 +3,66 @@ using UnityEngine;
 
 namespace Player
 {
+    /// <summary>
+    /// Only allow the player's weapon to be fired a set number of times before recharging
+    /// </summary>
     public class PlayerCharges : MonoBehaviour
     {
+        // Serialized fields
         [SerializeField] private int charges = 5;
         [SerializeField] private PlayerShoot shoot;
 
         [SerializeField] private float timeToRecharge = 1f;
     
+        // Events
         public event Action<float> ChargesChanged;
     
+        // Private fields
         private int _currentCharges = 5;
         private float _timer;
 
+        /// <summary>
+        /// Called when the component is created
+        /// </summary>
         private void Start()
         {
             shoot.Fire += OnFire;
             _currentCharges = charges;
         }
 
+        /// <summary>
+        /// Called when the component is destroyed
+        /// </summary>
         private void OnDestroy()
         {
             shoot.Fire -= OnFire;
         }
 
+        /// <summary>
+        /// Called every frame
+        /// </summary>
         private void Update()
         {
-            if (_currentCharges < charges)
+            // if we have max charges, don't do anything
+            if (_currentCharges >= charges) return;
+            
+            // if we don't have max charges, recharge
+            _timer -= Time.deltaTime;
+            // if we've recharged, add a charge and reset the timer
+            if (_timer <= 0)
             {
-                _timer -= Time.deltaTime;
-                if (_timer <= 0)
-                {
-                    _currentCharges++;
-                    shoot.SetCanFire(true);
-                    ChargesChanged?.Invoke(_currentCharges / (float)charges);
-                    _timer += timeToRecharge;
-                }
+                _currentCharges++;
+                _timer += timeToRecharge;
+                shoot.SetCanFire(true);
+                ChargesChanged?.Invoke(_currentCharges / (float)charges);
             }
         }
 
+        
+        /// <summary>
+        /// Called when the player fires
+        /// Remove a charge, reset the timer, and if we're out of charges, disable the player's ability to fire
+        /// </summary>
         private void OnFire()
         {
             _currentCharges--;
