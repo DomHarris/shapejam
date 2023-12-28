@@ -1,3 +1,4 @@
+using Stats;
 using UnityEngine;
 
 namespace Player
@@ -8,7 +9,7 @@ namespace Player
     public class MoveOnShoot : MonoBehaviour
     {
         // Serialized fields
-        [SerializeField] private float moveForce = 600;
+        [SerializeField] private Stat moveForce; // 600
         
         // Private fields
         private Rigidbody2D _rigidbody;

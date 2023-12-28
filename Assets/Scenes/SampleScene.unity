@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &51051721
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -607,12 +607,60 @@ MonoBehaviour:
   zoomReturnSpeed: 1
   zoomLimiter: 30
   minEnemyDistance: 15
-  enemies: []
-  enemyWeights: []
+  enemies:
+  - {fileID: 1504813467}
+  enemyWeights:
+  - 2
   edgeDistance: 1
   smoothTime: 0.3
   camShakeMax: 10
   camShakeMaxRotation: 10
+--- !u!1 &678782139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678782141}
+  - component: {fileID: 678782140}
+  m_Layer: 0
+  m_Name: TEST_AddModifiers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &678782140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678782139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b68088d45124b25872a0691ded039b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stat: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
+  multiplier: 1.4
+--- !u!4 &678782141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678782139}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695899092
 GameObject:
   m_ObjectHideFlags: 0
@@ -10372,8 +10420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minStartSize: 0.5
   maxStartSize: 0.9
-  chargeTime: 1
-  <chargeDelay>k__BackingField: 0.5
+  chargeTime: {fileID: 11400000, guid: 4237dbab37d154a088e6bf63de8996ca, type: 2}
+  chargeDelay: {fileID: 11400000, guid: 15e6c84aa13284dc58f72c276947e654, type: 2}
 --- !u!114 &819883427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10400,8 +10448,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946b5181fcbe41fdbaa88b0e7ea34030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: 1
-  maxDamage: 5
+  minDamage: {fileID: 11400000, guid: 5e064a8153f104bc1abc9d85be6f3012, type: 2}
+  maxDamage: {fileID: 11400000, guid: ed1749a2dd3304ff0acb659a3f7409bd, type: 2}
   minSize: 0.5
   maxSize: 0.9
 --- !u!1 &885290499
@@ -10672,7 +10720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1002638863
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10925,7 +10973,7 @@ GameObject:
   - component: {fileID: 1504813467}
   - component: {fileID: 1504813469}
   - component: {fileID: 1504813468}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10941,7 +10989,7 @@ Transform:
   m_GameObject: {fileID: 1504813466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.74, y: 0.82, z: 0}
+  m_LocalPosition: {x: 0, y: 0.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11023,7 +11071,7 @@ GameObject:
   - component: {fileID: 1517070402}
   - component: {fileID: 1517070401}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: BackgroundParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11121,7 +11169,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -11178,7 +11226,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -15836,12 +15884,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517070400}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1958221524}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538252566
 GameObject:
@@ -15859,7 +15907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1538252567
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15945,7 +15993,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1629618183
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16211,7 +16259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1878741894
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16346,10 +16394,11 @@ Transform:
   m_GameObject: {fileID: 1958221523}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.72, z: 0}
+  m_LocalPosition: {x: 1.95, y: -1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1517070403}
   - {fileID: 927906615}
   - {fileID: 1947849576}
   - {fileID: 511690790}
@@ -16475,7 +16524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3483feee524469dae84edaa2b6be0da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveForce: 600
+  moveForce: {fileID: 11400000, guid: 236c96c470a6b4a038ab258a7096f1d2, type: 2}
 --- !u!114 &1958221530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16488,9 +16537,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c1b368fb9c4525848c5d0622d711ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charges: 5
+  charges: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
   shoot: {fileID: 819883426}
-  timeToRecharge: 0.75
+  timeToRecharge: {fileID: 11400000, guid: 11452b88b8c1f4d92bdde89c0f53f2ae, type: 2}
 --- !u!114 &1958221531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16517,8 +16566,8 @@ SceneRoots:
   - {fileID: 1629618184}
   - {fileID: 1538252568}
   - {fileID: 51051722}
-  - {fileID: 1517070403}
   - {fileID: 695899094}
   - {fileID: 1958221524}
   - {fileID: 1663296765}
   - {fileID: 1504813467}
+  - {fileID: 678782141}

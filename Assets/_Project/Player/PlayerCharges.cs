@@ -1,4 +1,5 @@
 using System;
+using Stats;
 using UnityEngine;
 
 namespace Player
@@ -9,10 +10,10 @@ namespace Player
     public class PlayerCharges : MonoBehaviour
     {
         // Serialized fields
-        [SerializeField] private int charges = 5;
+        [SerializeField] private Stat charges;
         [SerializeField] private PlayerShoot shoot;
 
-        [SerializeField] private float timeToRecharge = 1f;
+        [SerializeField] private Stat timeToRecharge;
     
         // Events
         public event Action<float> ChargesChanged;
@@ -27,7 +28,13 @@ namespace Player
         private void Start()
         {
             shoot.Fire += OnFire;
-            _currentCharges = charges;
+            charges.ValueChanged += ChargesOnValueChanged;
+            _currentCharges = Mathf.RoundToInt(charges);
+        }
+
+        private void ChargesOnValueChanged()
+        {
+            ChargesChanged?.Invoke(_currentCharges / charges);
         }
 
         /// <summary>
@@ -54,7 +61,7 @@ namespace Player
                 _currentCharges++;
                 _timer += timeToRecharge;
                 shoot.SetCanFire(true);
-                ChargesChanged?.Invoke(_currentCharges / (float)charges);
+                ChargesChanged?.Invoke(_currentCharges / charges);
             }
         }
 
@@ -66,7 +73,7 @@ namespace Player
         private void OnFire()
         {
             _currentCharges--;
-            ChargesChanged?.Invoke(_currentCharges / (float)charges);
+            ChargesChanged?.Invoke(_currentCharges / charges);
             _timer = timeToRecharge;
             if (_currentCharges <= 0)
                 shoot.SetCanFire(false);

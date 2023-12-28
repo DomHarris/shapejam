@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Player
+namespace CameraController
 {
     /// <summary>
     /// A big ol' fancy camera controller
@@ -45,7 +45,7 @@ namespace Player
         private Vector3 _velocity;
         private Vector3 _offset;
         private Vector3 _targetAveragePosition;
-        private Camera _cam;
+        private UnityEngine.Camera _cam;
 
         private Vector3 _playerPosition;
         private Vector3 _lookTargetPosition;
@@ -67,7 +67,7 @@ namespace Player
             // get the starting offset
             _offset = transform.position - player.position;
             // and the camera
-            _cam = GetComponent<Camera>();
+            _cam = GetComponent<UnityEngine.Camera>();
             // and seed the camera shake
             _seed = Random.Range(0, 99999);
         }

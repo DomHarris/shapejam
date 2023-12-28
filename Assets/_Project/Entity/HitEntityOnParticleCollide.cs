@@ -1,4 +1,5 @@
 using Bullet;
+using Stats;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace Entity
     public class HitEntityOnParticleCollide : MonoBehaviour
     {
         // Serialized fields 
-        [SerializeField] private float minDamage = 1, maxDamage = 5;
+        [SerializeField] private Stat minDamage, maxDamage;
         [SerializeField] private float minSize = 0.5f, maxSize = 0.9f;
         
         private BulletHit _bulletHit;

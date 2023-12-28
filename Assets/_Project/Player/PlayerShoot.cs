@@ -1,4 +1,5 @@
 using System;
+using Stats;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,10 +13,10 @@ namespace Player
         // Serialized fields
         [SerializeField] private float minStartSize = 5f;
         [SerializeField] private float maxStartSize = 10f;
-        [SerializeField] private float chargeTime = 1f;
-        
-        // Properties
-        [field: SerializeField] public float chargeDelay { get; private set; } = 0.2f;
+        [SerializeField] private Stat chargeTime;
+
+        [SerializeField] private Stat chargeDelay;
+        public float ChargeDelay => chargeDelay;
         
         // Private fields: state
         private bool _canFire = true;

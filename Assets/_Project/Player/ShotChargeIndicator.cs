@@ -47,7 +47,7 @@ namespace Player
         {
             // Animate the scale of the object
             transform.localScale = Vector3.one * compressScale;
-            transform.DOScale(_scale, _shoot.chargeDelay)
+            transform.DOScale(_scale, _shoot.ChargeDelay)
                 .SetEase(Ease.OutQuint);
         }
 

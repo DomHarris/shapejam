@@ -1,7 +1,8 @@
 using DG.Tweening;
+using Player;
 using UnityEngine;
 
-namespace Player
+namespace CameraController
 {
     /// <summary>
     /// Shake the camera in a direction when the player shoots

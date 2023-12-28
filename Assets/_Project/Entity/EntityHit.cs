@@ -6,7 +6,7 @@ namespace Entity
     /// <summary>
     /// Track the health of an entity
     /// </summary>
-    public class EntityHit : MonoBehaviour, IHit
+    public class EntityHealth : MonoBehaviour, IHit
     {
         // Serialized fields
         [field: SerializeField] public float MaxHealth { get; private set; }
