@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Stats
 {
+    public enum ModifierType { Multiply, Add }
+    
     /// <summary>
     /// A stat that can be modified by other scripts
     /// </summary>
@@ -14,15 +16,14 @@ namespace Stats
         [field: SerializeField] public float InitialValue { get; private set; }
 
         public float Value =>
-            InitialValue * _modifiers.Aggregate(1f, (current, modifier) => current * modifier);
+            InitialValue * _modifiers.Where(m => m.type == ModifierType.Multiply).Aggregate(1f, (current, modifier) => current * modifier.value) + _modifiers.Where(m => m.type == ModifierType.Add).Sum(m => m.value);
 
-        [NonSerialized] private readonly List<float> _modifiers = new ();
-    
+        [NonSerialized] private readonly List<(float value, ModifierType type)> _modifiers = new ();
         public event Action ValueChanged;
         
-        public int AddModifier (float modifier)
+        public int AddModifier (float modifier, ModifierType type)
         {
-            _modifiers.Add(modifier);
+            _modifiers.Add((modifier, type));
             return _modifiers.Count - 1;
         }
     
