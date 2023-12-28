@@ -1,14 +1,23 @@
 using System;
 using Entity;
+using Stats;
 using UnityEngine;
 
 namespace Bullet
 {
+    public class BulletHitParams : EventParams
+    {
+        public GameObject WeaponObject;
+        public GameObject HitObject;
+        public ParticleSystem.Particle Particle;
+    }
+    
     /// <summary>
     /// Hit an entity with a bullet
     /// </summary>
     public class BulletHit : MonoBehaviour
     {
+        [SerializeField] private EventAction onHit;
         public event Action<GameObject, ParticleSystem.Particle> OnHit;
         
         // Private fields
@@ -46,6 +55,8 @@ namespace Bullet
             
             // Invoke the event
             OnHit?.Invoke(other, _particlesArray[idx]);
+            
+            onHit.TriggerAction(new BulletHitParams { HitObject = other, Particle = _particlesArray[idx], WeaponObject = gameObject});
         }
     }
 }

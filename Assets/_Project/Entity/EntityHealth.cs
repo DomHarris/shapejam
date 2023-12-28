@@ -1,16 +1,30 @@
 using System;
+using Stats;
 using UnityEngine;
 
 namespace Entity
 {
+    public class HitParams : EventParams
+    {
+        public GameObject Object;
+        public float Damage;
+    }
     /// <summary>
     /// Track the health of an entity
     /// </summary>
     public class EntityHealth : MonoBehaviour, IHit
     {
         // Serialized fields
-        [field: SerializeField] public float MaxHealth { get; private set; }
+        [SerializeField] public Stat maxHealth;
+        public float MaxHealth => maxHealth;
 
+        [SerializeField] private EventAction onHit;
+        [SerializeField] private EventAction onDie;
+
+        // Events
+        public event Action OnHit;
+        public event Action OnDie;
+        
         // Private fields
         private float _currentHealth;
         
@@ -29,8 +43,14 @@ namespace Entity
         public void Hit(float damage)
         {
             _currentHealth -= damage;
+            onHit.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+            OnHit?.Invoke();
+            
             if (_currentHealth <= 0)
-                Destroy(gameObject);
+            {
+                OnDie?.Invoke();
+                onDie.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+            }
         }
     }
 }

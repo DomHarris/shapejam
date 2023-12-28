@@ -645,7 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stat: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
-  multiplier: 1.4
+  modifier: 1.4
+  type: 0
 --- !u!4 &678782141
 Transform:
   m_ObjectHideFlags: 0
@@ -10406,6 +10407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a5d05bcde04e7fa87cc351162607a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHit: {fileID: 11400000, guid: 89403e8d541f44f7ab1a94a16d795009, type: 2}
 --- !u!114 &819883426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10422,6 +10424,7 @@ MonoBehaviour:
   maxStartSize: 0.9
   chargeTime: {fileID: 11400000, guid: 4237dbab37d154a088e6bf63de8996ca, type: 2}
   chargeDelay: {fileID: 11400000, guid: 15e6c84aa13284dc58f72c276947e654, type: 2}
+  shootEvent: {fileID: 11400000, guid: bfb42460f07084214b25bab04d8fcf92, type: 2}
 --- !u!114 &819883427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16378,6 +16381,7 @@ GameObject:
   - component: {fileID: 1958221529}
   - component: {fileID: 1958221530}
   - component: {fileID: 1958221531}
+  - component: {fileID: 1958221532}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16555,6 +16559,21 @@ MonoBehaviour:
   cam: {fileID: 519420033}
   shotStrength: -0.5
   returnDuration: 0.3
+--- !u!114 &1958221532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958221523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a6dfd956cf4ead8631a09952a7b726, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: {fileID: 11400000, guid: 9edb5e2ec985241e3bb6c5b233b0b0d2, type: 2}
+  onHit: {fileID: 11400000, guid: 85a3412e839a3457ca3b7c95ab7f105c, type: 2}
+  onDie: {fileID: 11400000, guid: 89403e8d541f44f7ab1a94a16d795009, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

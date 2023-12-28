@@ -5,6 +5,12 @@ using UnityEngine.InputSystem;
 
 namespace Player
 {
+    public class ShootEventParams : EventParams
+    {
+        public Vector3 Position;
+        public float ChargePercent;
+    }
+    
     /// <summary>
     /// Shoot a particle with size based on the charge time.
     /// </summary>
@@ -16,6 +22,8 @@ namespace Player
         [SerializeField] private Stat chargeTime;
 
         [SerializeField] private Stat chargeDelay;
+        
+        [SerializeField] private EventAction shootEvent;
         public float ChargeDelay => chargeDelay;
         
         // Private fields: state
@@ -88,6 +96,8 @@ namespace Player
             {
                 startSize = Mathf.Lerp(maxStartSize, minStartSize, Mathf.Clamp01(_chargeTimer / chargeTime))
             }, 1);
+            
+            shootEvent.TriggerAction(new ShootEventParams { Position = transform.position, ChargePercent = 1 - Mathf.Clamp01(_chargeTimer / chargeTime) });
             
             // Reset the charge timer and invoke the charge and fire events
             _chargeTimer = chargeTime + chargeDelay;
