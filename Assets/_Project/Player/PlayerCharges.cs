@@ -4,6 +4,13 @@ using UnityEngine;
 
 namespace Player
 {
+    public class ChargeParams : EventParams
+    {
+        public int NumCharges;
+        public int MaxCharges;
+        public GameObject Player;
+        
+    }
     /// <summary>
     /// Only allow the player's weapon to be fired a set number of times before recharging
     /// </summary>
@@ -14,6 +21,7 @@ namespace Player
         [SerializeField] private PlayerShoot shoot;
 
         [SerializeField] private Stat timeToRecharge;
+        [SerializeField] private EventAction onCharge;
     
         // Events
         public event Action<float> ChargesChanged;
@@ -62,6 +70,7 @@ namespace Player
                 _timer += timeToRecharge;
                 shoot.SetCanFire(true);
                 ChargesChanged?.Invoke(_currentCharges / charges);
+                onCharge.TriggerAction(new ChargeParams { NumCharges = _currentCharges, MaxCharges = Mathf.RoundToInt(charges), Player = gameObject});
             }
         }
 
