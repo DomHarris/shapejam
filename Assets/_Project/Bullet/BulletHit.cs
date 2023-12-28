@@ -1,3 +1,4 @@
+using System;
 using Entity;
 using UnityEngine;
 
@@ -8,9 +9,7 @@ namespace Bullet
     /// </summary>
     public class BulletHit : MonoBehaviour
     {
-        // Serialized fields 
-        [SerializeField] private float minDamage, maxDamage;
-        [SerializeField] private float minSize, maxSize;
+        public event Action<GameObject, ParticleSystem.Particle> OnHit;
         
         // Private fields
         private ParticleSystem _particles;
@@ -45,14 +44,8 @@ namespace Bullet
                 }
             }
             
-            // Calculate the damage based on the size of the particle
-            var size = _particlesArray[idx].startSize;
-            var damage = Mathf.Lerp(minDamage, maxDamage,
-                Mathf.InverseLerp(minSize, maxSize, size));
-            
-            // Hit the object
-            var hit = other.GetComponent<IHit>();
-            hit?.Hit(damage);
+            // Invoke the event
+            OnHit?.Invoke(other, _particlesArray[idx]);
         }
     }
 }
