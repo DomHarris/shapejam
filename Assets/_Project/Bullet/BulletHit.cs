@@ -31,7 +31,6 @@ namespace Bullet
         {
             _particles = GetComponent<ParticleSystem>();
         }
-    
         
         /// <summary>
         /// Called when a particle from the particle system attached to this object collides with another object

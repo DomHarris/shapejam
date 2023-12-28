@@ -2,7 +2,7 @@ using System;
 using Stats;
 using UnityEngine;
 
-namespace Player
+namespace Player.Abilities
 {
     [CreateAssetMenu]
     public class StatModifierAbility : PlayerAbility

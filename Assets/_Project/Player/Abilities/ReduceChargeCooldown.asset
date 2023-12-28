@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd55f03134424e7b99b529ee150251d4, type: 3}
+  m_Name: ReduceChargeCooldown
+  m_EditorClassIdentifier: 
+  <Weight>k__BackingField: 1
+  <OnlyOne>k__BackingField: 1
+  stat: {fileID: 11400000, guid: 11452b88b8c1f4d92bdde89c0f53f2ae, type: 2}
+  modifier: 0.75
+  type: 0
