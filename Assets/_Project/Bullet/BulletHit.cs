@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Bullet
 {
+    /// <summary>
+    /// Parameters for the bullet hit event
+    /// </summary>
     public class BulletHitParams : EventParams
     {
         public GameObject WeaponObject;

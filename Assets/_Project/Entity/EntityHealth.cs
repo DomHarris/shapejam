@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Entity
 {
+    /// <summary>
+    /// The parameters for a hit event
+    /// </summary>
     public class HitParams : EventParams
     {
         public GameObject Object;
