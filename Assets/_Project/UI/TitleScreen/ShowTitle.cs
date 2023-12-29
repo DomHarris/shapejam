@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using DG.Tweening;
+using Stats;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -17,6 +20,8 @@ public class ShowTitle : MonoBehaviour
     
     [SerializeField] private TextMeshProUGUI continueText;
 
+    [SerializeField] private EventAction gameStart;
+    
     private bool _pressedButton = false;
     
     // Start is called before the first frame update
@@ -67,6 +72,19 @@ public class ShowTitle : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+        gameStart.ActionTriggered += OnGameStart;
+    }
+
+    private void OnGameStart(EventParams _)
+    {
+        gameStart.ActionTriggered -= OnGameStart;
+        textCanvas.DOFade(0, 1f);
+        background.DOSizeDelta(new Vector2(background.sizeDelta.x, 0), 1f)
+            .SetEase(Ease.InOutQuint);
+        continueText.DOFade(0f, 1f).OnComplete(() => SceneManager.UnloadSceneAsync("Title"));
+        for (int i = 0; i < buttons.Length; ++i)
+            buttons[i].DOFade(0f, 0.5f)
+                .SetDelay( (buttons.Length-i) * 0.1f);
     }
 
     public void PressButton()
@@ -78,4 +96,13 @@ public class ShowTitle : MonoBehaviour
     {
         text.characterSpacing = value;
     }
+    
+    #if UNITY_EDITOR
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    public static async void StartGame_Editor ()
+    {
+        await Task.Yield();
+        Resources.FindObjectsOfTypeAll<EventAction>().First(e => e.name.Contains("Start")).TriggerAction();
+    }
+    #endif
 }

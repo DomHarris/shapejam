@@ -10,11 +10,11 @@ namespace Player
     {
         // Serialized fields
         [SerializeField] private Stat moveForce; // 600
-        
+        [SerializeField] private EventAction gameStart;
+
         // Private fields
         private Rigidbody2D _rigidbody;
         private PlayerShoot _shoot;
-    
         
         /// <summary>
         /// Called when the object is created
@@ -25,6 +25,16 @@ namespace Player
             _rigidbody = GetComponent<Rigidbody2D>();
             _shoot = GetComponentInChildren<PlayerShoot>();
             _shoot.Fire += OnFire;
+            gameStart += OnGameStart;
+        }
+
+        /// <summary>
+        /// Called when the "Play" button is pressed
+        /// </summary>
+        /// <param name="_"></param>
+        private void OnGameStart(EventParams _)
+        {
+            _rigidbody.position = Vector2.zero;
         }
         
         /// <summary>
@@ -33,6 +43,7 @@ namespace Player
         private void OnDestroy()
         {
             _shoot.Fire -= OnFire;
+            gameStart -= OnGameStart;
         }
 
         /// <summary>

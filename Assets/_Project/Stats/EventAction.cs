@@ -20,5 +20,27 @@ namespace Stats
         {
             ActionTriggered?.Invoke(data);
         }
+        
+        /// <summary>
+        /// Trigger an event with no data
+        /// </summary>
+        public void TriggerAction()
+        {
+            ActionTriggered?.Invoke(null);
+        }
+        
+        // operator override += to add a listener
+        public static EventAction operator +(EventAction action, Action<EventParams> listener)
+        {
+            action.ActionTriggered += listener;
+            return action;
+        }
+        
+        // operator override -= to remove a listener
+        public static EventAction operator -(EventAction action, Action<EventParams> listener)
+        {
+            action.ActionTriggered -= listener;
+            return action;
+        }
     }
 }

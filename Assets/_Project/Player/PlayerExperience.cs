@@ -26,13 +26,36 @@ namespace Player
         [SerializeField, Tooltip("The thresholds for levelling up")] 
         private float[] experienceThresholds;
 
+        [SerializeField] private EventAction onGameStart;
+        
         // Events
         public event Action<int> OnLevelUp;
         
         // Private fields
         private int _currentLevel = 1;
         private float _currentExperience = 0f;
-        
+
+        /// <summary>
+        /// Called when the level is loaded
+        /// </summary>
+        private void Start()
+        {
+            onGameStart += OnGameStart;
+            gameObject.SetActive(false);
+        }
+
+        private void OnDestroy()
+        {
+            onGameStart -= OnGameStart;
+        }
+
+        private void OnGameStart(EventParams obj)
+        {
+            _currentLevel = 1;
+            _currentExperience = 0f;
+            gameObject.SetActive(true);
+        }
+
         /// <summary>
         /// Add experience to the player
         /// </summary>

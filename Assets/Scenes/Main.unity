@@ -16279,7 +16279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1958221524
 Transform:
   m_ObjectHideFlags: 0
@@ -16419,6 +16419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveForce: {fileID: 11400000, guid: 236c96c470a6b4a038ab258a7096f1d2, type: 2}
+  gameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!114 &1958221530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16435,6 +16436,7 @@ MonoBehaviour:
   shoot: {fileID: 819883426}
   timeToRecharge: {fileID: 11400000, guid: 11452b88b8c1f4d92bdde89c0f53f2ae, type: 2}
   onCharge: {fileID: 11400000, guid: 4111bf4fbd2184abfbe7e060cb5f98e5, type: 2}
+  onGameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!114 &1958221531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16490,6 +16492,7 @@ MonoBehaviour:
   - 1280
   - 2560
   - 5120
+  onGameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ namespace Player
 
         [SerializeField] private Stat timeToRecharge;
         [SerializeField] private EventAction onCharge;
+        [SerializeField] private EventAction onGameStart;
     
         // Events
         public event Action<float> ChargesChanged;
@@ -37,12 +38,22 @@ namespace Player
         {
             shoot.Fire += OnFire;
             charges.ValueChanged += ChargesOnValueChanged;
+            onGameStart += OnGameStart;
             _currentCharges = Mathf.RoundToInt(charges);
+        }
+
+        private void OnGameStart(EventParams _)
+        {
+            _currentCharges = Mathf.RoundToInt(charges);
+            ChargesChanged?.Invoke(_currentCharges / charges);
         }
 
         private void ChargesOnValueChanged()
         {
             ChargesChanged?.Invoke(_currentCharges / charges);
+            onCharge.TriggerAction(new ChargeParams { NumCharges = _currentCharges, MaxCharges = Mathf.RoundToInt(charges), Player = gameObject});
+            shoot.SetCanFire(true);
+            _timer = 0;
         }
 
         /// <summary>
@@ -51,6 +62,7 @@ namespace Player
         private void OnDestroy()
         {
             shoot.Fire -= OnFire;
+            onGameStart -= OnGameStart;
         }
 
         /// <summary>
