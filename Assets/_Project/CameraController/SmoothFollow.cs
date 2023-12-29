@@ -12,5 +12,4 @@ namespace CameraController
             transform.position = Vector3.Lerp(transform.position, target.position + target.rotation * offset, movePercentPerSecond * Time.deltaTime);
         }
     }
-    
 }
