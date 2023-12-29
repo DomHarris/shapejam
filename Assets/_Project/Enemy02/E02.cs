@@ -1,19 +1,27 @@
+using Entity;
 using UnityEngine;
 
-public class E02 : MonoBehaviour
+public class E02 : MonoBehaviour, IHit
 {
     [SerializeField] private Color defaultColor;
     [SerializeField] private Color hitColor;
     private SpriteRenderer _spriteRenderer;
+
+    private bool _activateEnemy;
     // Start is called before the first frame update
     void Start()
     {
-        _spriteRenderer = (SpriteRenderer)FindFirstObjectByType(typeof(SpriteRenderer));
+        _spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         _spriteRenderer.color = defaultColor;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void Hit(float damage)
     {
-        if (other.gameObject.CompareTag("Player")) _spriteRenderer.color = hitColor;
+        if (!_activateEnemy)
+        {
+            _spriteRenderer.color = hitColor;
+            _activateEnemy = true;
+        }
+        
     }
 }
