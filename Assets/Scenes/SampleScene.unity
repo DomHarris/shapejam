@@ -444,7 +444,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
@@ -615,53 +615,6 @@ MonoBehaviour:
   smoothTime: 0.3
   camShakeMax: 10
   camShakeMaxRotation: 10
---- !u!1 &678782139
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 678782141}
-  - component: {fileID: 678782140}
-  m_Layer: 0
-  m_Name: TEST_AddModifiers
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &678782140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678782139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b68088d45124b25872a0691ded039b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stat: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
-  modifier: 1.4
-  type: 0
---- !u!4 &678782141
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678782139}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695899092
 GameObject:
   m_ObjectHideFlags: 0
@@ -16545,7 +16498,7 @@ MonoBehaviour:
   charges: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
   shoot: {fileID: 819883426}
   timeToRecharge: {fileID: 11400000, guid: 11452b88b8c1f4d92bdde89c0f53f2ae, type: 2}
-  onCharge: {fileID: 0}
+  onCharge: {fileID: 11400000, guid: 4111bf4fbd2184abfbe7e060cb5f98e5, type: 2}
 --- !u!114 &1958221531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16607,6 +16560,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 506536209}
   - {fileID: 519420032}
+  - {fileID: 1663296765}
   - {fileID: 1002638864}
   - {fileID: 1878741895}
   - {fileID: 1629618184}
@@ -16614,6 +16568,4 @@ SceneRoots:
   - {fileID: 51051722}
   - {fileID: 695899094}
   - {fileID: 1958221524}
-  - {fileID: 1663296765}
   - {fileID: 1504813467}
-  - {fileID: 678782141}
