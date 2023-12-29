@@ -556,7 +556,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5.85
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -601,7 +601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1958221524}
   lookTarget: {fileID: 695899094}
-  minZoom: 5
+  minZoom: 6.5
   maxZoom: 10
   zoomSpeed: 10
   zoomReturnSpeed: 1
@@ -611,8 +611,8 @@ MonoBehaviour:
   - {fileID: 1504813467}
   enemyWeights:
   - 2
-  edgeDistance: 1
-  smoothTime: 0.3
+  edgeDistance: 4
+  smoothTime: 0.1
   camShakeMax: 10
   camShakeMaxRotation: 10
 --- !u!1 &695899092
@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 1958221524}
-  offset: {x: 2.5, y: 0, z: 0}
-  movePercentPerSecond: 2
+  offset: {x: 1.5, y: 0, z: 0}
+  movePercentPerSecond: 10
 --- !u!4 &695899094
 Transform:
   m_ObjectHideFlags: 0
