@@ -18,6 +18,7 @@ namespace Stats
         /// <param name="data"></param>
         public void TriggerAction(EventParams data)
         {
+            Debug.Log("Triggering event " + name);
             ActionTriggered?.Invoke(data);
         }
         
@@ -26,6 +27,7 @@ namespace Stats
         /// </summary>
         public void TriggerAction()
         {
+            Debug.Log("Triggering event " + name);
             ActionTriggered?.Invoke(null);
         }
         

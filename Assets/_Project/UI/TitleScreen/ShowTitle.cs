@@ -77,6 +77,7 @@ public class ShowTitle : MonoBehaviour
 
     private void OnGameStart(EventParams _)
     {
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Main"));
         gameStart.ActionTriggered -= OnGameStart;
         textCanvas.DOFade(0, 1f);
         background.DOSizeDelta(new Vector2(background.sizeDelta.x, 0), 1f)
@@ -101,6 +102,7 @@ public class ShowTitle : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     public static async void StartGame_Editor ()
     {
+        if (SceneManager.GetActiveScene().name == "Title") return;
         await Task.Yield();
         Resources.FindObjectsOfTypeAll<EventAction>().First(e => e.name.Contains("Start")).TriggerAction();
     }
