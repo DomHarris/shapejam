@@ -1,4 +1,5 @@
 using System;
+using JetBrains.Annotations;
 using Stats;
 using UnityEngine;
 
@@ -18,11 +19,11 @@ namespace Entity
     public class EntityHealth : MonoBehaviour, IHit
     {
         // Serialized fields
-        [SerializeField] public Stat maxHealth;
+        [SerializeField] private Stat maxHealth;
         public float MaxHealth => maxHealth;
 
-        [SerializeField] private EventAction onHit;
-        [SerializeField] private EventAction onDie;
+        [SerializeField, CanBeNull] private EventAction onHit;
+        [SerializeField, CanBeNull] private EventAction onDie;
 
         // Events
         public event Action OnHit;
@@ -46,13 +47,15 @@ namespace Entity
         public void Hit(float damage)
         {
             _currentHealth -= damage;
-            onHit.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+            if (onHit != null)
+                onHit.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
             OnHit?.Invoke();
             
             if (_currentHealth <= 0)
             {
                 OnDie?.Invoke();
-                onDie.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+                if (onDie != null)
+                    onDie.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
             }
         }
     }

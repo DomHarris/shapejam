@@ -65,7 +65,7 @@ namespace Player
             // Add the experience using the multiplier
             _currentExperience += experienceToAdd * experienceMultiplier;
             // Check if the player has levelled up
-            if (experienceThresholds.Length < _currentLevel && _currentExperience > experienceThresholds[_currentLevel - 1])
+            if (_currentLevel < experienceThresholds.Length && _currentExperience >= experienceThresholds[_currentLevel - 1])
             {
                 // Level up
                 _currentLevel++;

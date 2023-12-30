@@ -16,7 +16,7 @@ namespace Stats
         // Serialized fields
         [field: SerializeField, Tooltip("The base value of the stat")] 
         public float InitialValue { get; private set; }
-
+        
         // Public properties
         public float Value
         {

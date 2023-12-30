@@ -2,7 +2,7 @@ using DG.Tweening;
 using Player;
 using UnityEngine;
 
-namespace CameraController
+namespace CameraControl
 {
     /// <summary>
     /// Shake the camera in a direction when the player shoots

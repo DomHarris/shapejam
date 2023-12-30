@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace CameraController
+namespace CameraControl
 {
     public class ImmediateFollow : MonoBehaviour
     {

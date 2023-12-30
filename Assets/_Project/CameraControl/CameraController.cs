@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-namespace CameraController
+namespace CameraControl
 {
     /// <summary>
     /// A big ol' fancy camera controller
@@ -70,6 +70,8 @@ namespace CameraController
             _cam = GetComponent<UnityEngine.Camera>();
             // and seed the camera shake
             _seed = Random.Range(0, 99999);
+
+            Screen.fullScreen = true;
         }
 
         /// <summary>
