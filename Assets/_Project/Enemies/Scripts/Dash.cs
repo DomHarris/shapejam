@@ -1,6 +1,10 @@
+using System;
+using System.Collections;
+using System.Threading.Tasks;
 using DG.Tweening;
 using Stats;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemies
 {
@@ -35,6 +39,19 @@ namespace Enemies
             if (_player == null)
                 _player = GameObject.FindWithTag("Player").transform;
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private async void OnEnable()
+        {
+            _canDash = false;
+            var timer = minTimeBetweenDashes;
+            while (timer > 0)
+            {
+                timer -= Time.deltaTime;
+                await Task.Yield();
+            }
+
+            _canDash = true;
         }
 
         private void Update()

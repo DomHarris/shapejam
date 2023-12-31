@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Weight>k__BackingField: 1
   <OnlyOne>k__BackingField: 1
+  <Description>k__BackingField: quicker recharge
   stat: {fileID: 11400000, guid: 11452b88b8c1f4d92bdde89c0f53f2ae, type: 2}
   modifier: 0.75
   type: 0

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Weight>k__BackingField: 1
   <OnlyOne>k__BackingField: 0
+  <Description>k__BackingField: extra charge
   stat: {fileID: 11400000, guid: 0b114a8c786b44f7aaf55d6a5ce6d27b, type: 2}
   modifier: 1
   type: 1

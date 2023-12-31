@@ -12,6 +12,9 @@ namespace Player.Abilities
         [field: SerializeField, Tooltip("Should this ability appear more than once?")] 
         public bool OnlyOne { get; private set; } = true;
         
+        [field: SerializeField, Tooltip("A short description to let the player know what the ability does")]
+        public string Description { get; private set; }
+        
         /// <summary>
         /// Called when the ability is equipped
         /// </summary>
