@@ -6,7 +6,7 @@ namespace Spawning
 {
     public class SpawnableEnemy : MonoBehaviour
     {
-        [field: SerializeField] public float CameraWeight { get; private set; }
+        [field: SerializeField, Range(0, 4)] public float CameraWeight { get; private set; } = 1;
         public event Action<SpawnableEnemy> OnDeath;
         private EntityHealth _health;
         

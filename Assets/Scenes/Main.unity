@@ -607,10 +607,8 @@ MonoBehaviour:
   zoomReturnSpeed: 1
   zoomLimiter: 30
   minEnemyDistance: 15
-  enemies:
-  - {fileID: 0}
-  enemyWeights:
-  - 2
+  enemies: []
+  enemyWeights: []
   edgeDistance: 4
   smoothTime: 0.1
   camShakeMax: 10
@@ -16156,6 +16154,7 @@ GameObject:
   - component: {fileID: 1958221531}
   - component: {fileID: 1958221532}
   - component: {fileID: 1958221533}
+  - component: {fileID: 1958221534}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -16208,7 +16207,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &1958221526
 CircleCollider2D:
@@ -16376,6 +16375,19 @@ MonoBehaviour:
   - 2560
   - 5120
   onGameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
+--- !u!114 &1958221534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958221523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a2071b1a6c0439b8b354ab59a4fb254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

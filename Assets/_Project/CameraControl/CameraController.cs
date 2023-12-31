@@ -144,28 +144,14 @@ namespace CameraControl
 
             // Perlin noise makes the shake smoother and more "natural" vs completely random
             // it will also slow down with Time.timeScale
-            var xPos = GetPerlin(_seed, 100, camShakeMax);
-            var yPos = GetPerlin(_seed + 1, 100, camShakeMax);
-            var rot = GetPerlin(_seed + 2, 100, camShakeMaxRotation);
+            var xPos = PerlinHelper.GetPerlin(_seed, 100, Mathf.Pow(_trauma, 2) * camShakeMax);
+            var yPos = PerlinHelper.GetPerlin(_seed + 1, 100, Mathf.Pow(_trauma, 2) * camShakeMax);
+            var rot = PerlinHelper.GetPerlin(_seed + 2, 100, Mathf.Pow(_trauma, 2) * camShakeMaxRotation);
             // calculate the new camera shake offset
             _camShakeOffset = new Vector3(xPos, yPos);
             transform.eulerAngles = new Vector3(0, 0, rot);
             // increment the elapsed time so we can get new values next frame
             _elapsedTime += Time.deltaTime;
-        }
-
-        /// <summary>
-        /// Calculate a perlin noise value
-        /// </summary>
-        /// <param name="newSeed">The seed to use</param>
-        /// <param name="frequency">How quickly does the shake change</param>
-        /// <param name="strength">How strong is the shake</param>
-        /// <returns>A random float between 0 and 1</returns>
-        private float GetPerlin(float newSeed, float frequency, float strength)
-        {
-            var noise = Mathf.PerlinNoise(newSeed + _elapsedTime * frequency, newSeed + _elapsedTime * frequency);
-            noise = noise * 2 - 1;
-            return noise * Mathf.Pow(_trauma, 2) * strength;
         }
 
         /// <summary>

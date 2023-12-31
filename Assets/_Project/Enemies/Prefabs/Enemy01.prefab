@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: -8262466711817566549}
   - component: {fileID: -7040885446582007945}
   - component: {fileID: 6110989116082415043}
+  - component: {fileID: 6888856395201882102}
+  - component: {fileID: 3176640317739359670}
   m_Layer: 8
   m_Name: Enemy01
   m_TagString: Untagged
@@ -50,7 +52,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 3
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -112,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c787108f63624c7db4ae261b48ad9334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CameraWeight>k__BackingField: 0
+  <CameraWeight>k__BackingField: 1
 --- !u!114 &-7040885446582007945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +143,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experienceToAdd: 5
+--- !u!114 &6888856395201882102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175868728892441340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c92d8747203654cd495edbcc0f5d4ae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistanceToPlayer: 10
+  speed: 5
+  directionFrequency: 0.1
+  playerPosition: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}
+--- !u!114 &3176640317739359670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2175868728892441340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6484505c2a584426a0c2bf4fa5f67ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minTimeBetweenDashes: 5
+  dashChance: 0.01
+  dashWindupTime: 0.5
+  dashDuration: 0.75
+  dashEase: 15
+  dashLength: 3
+  lookRadius: 6
+  movement: {fileID: 6888856395201882102}
+  tokenHolder: {fileID: 11400000, guid: a284d2c3aeb8f4c67ad0203b3ecea41f, type: 2}
+  attackWindupPriority: 1
+  attackPriority: 20
 --- !u!1 &7313010647674094933
 GameObject:
   m_ObjectHideFlags: 0
