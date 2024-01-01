@@ -124,5 +124,15 @@ namespace Spawning
             _spawnedEnemies.Remove(enemy);
             LeanPool.Despawn(enemy);
         }
+
+        public void ClearEnemies()
+        {
+            foreach (var enemy in _spawnedEnemies)
+            {
+                enemy.OnDeath -= OnEnemyDie;
+                LeanPool.Despawn(enemy);
+            }
+            _spawnedEnemies.Clear();
+        }
     }
 }

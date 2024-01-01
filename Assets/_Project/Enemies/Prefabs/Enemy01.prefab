@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: {fileID: 11400000, guid: 50a48de1b730544a39d19ef534fd46bb, type: 2}
   onHit: {fileID: 11400000, guid: 0382eadd8c1d945dca771ad858f5cad9, type: 2}
-  onDie: {fileID: 11400000, guid: baf36272bfce149498bc611f3fd7912f, type: 2}
+  <Die>k__BackingField: {fileID: 11400000, guid: baf36272bfce149498bc611f3fd7912f, type: 2}
 --- !u!114 &6110989116082415043
 MonoBehaviour:
   m_ObjectHideFlags: 0

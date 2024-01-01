@@ -51,6 +51,7 @@ namespace Player
 
         private void OnGameStart(EventParams obj)
         {
+            gameObject.SetActive(false);
             _currentLevel = 1;
             _currentExperience = 0f;
             gameObject.SetActive(true);
