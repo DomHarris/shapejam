@@ -30,6 +30,7 @@ namespace Player
         private bool _canFire = true;
         private Vector2 _target;
         private float _chargeTimer = 0f;
+        private bool _canFireCharged = true;
         
         // Private fields: object references
         private ParticleSystem _particles;
@@ -45,7 +46,7 @@ namespace Player
         /// </summary>
         /// <param name="canFire"></param>
         public void SetCanFire (bool canFire) => _canFire = canFire;
-        
+        public void SetCanFireCharged (bool canFireCharged) => _canFireCharged = canFireCharged;
         /// <summary>
         /// Called when the object is created.
         /// Grab the relevant object references and subscribe to any input actions.
@@ -89,6 +90,8 @@ namespace Player
         {
             // if we can't fire, don't do anything
             if (!_canFire) return;
+
+            if (!_canFireCharged) _chargeTimer = 0;
             
             // Emit a single particle with a new start size
             // The start size is lerped between the max and min start size based on the charge timer

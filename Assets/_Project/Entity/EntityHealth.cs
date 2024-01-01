@@ -2,6 +2,7 @@ using System;
 using JetBrains.Annotations;
 using Stats;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Entity
 {
@@ -23,7 +24,7 @@ namespace Entity
         public float MaxHealth => maxHealth;
 
         [SerializeField, CanBeNull] private EventAction onHit;
-        [SerializeField, CanBeNull] private EventAction onDie;
+        [field: SerializeField] public EventAction Die { get; private set; }
 
         // Events
         public event Action OnHit;
@@ -38,6 +39,16 @@ namespace Entity
         private void Start()
         {
             _currentHealth = MaxHealth;
+        }
+
+        private void OnEnable()
+        {
+            _currentHealth = MaxHealth;
+        }
+
+        public void SetDeathEvent (EventAction newEvent)
+        {
+            Die = newEvent;
         }
         
         /// <summary>
@@ -54,8 +65,8 @@ namespace Entity
             if (_currentHealth <= 0)
             {
                 OnDie?.Invoke();
-                if (onDie != null)
-                    onDie.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+                if (Die != null) 
+                    Die.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
             }
         }
     }

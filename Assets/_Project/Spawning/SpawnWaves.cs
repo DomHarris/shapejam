@@ -14,7 +14,8 @@ namespace Spawning
         [SerializeField] private EventAction onWaveEnded;
         [SerializeField] private EventAction onGameStarted;
         
-        private int _currentWave;
+        private int _currentWaveIdx;
+        private Wave _currentWave;
         
         private void Start()
         {
@@ -24,7 +25,10 @@ namespace Spawning
 
         private void GameStarted(EventParams obj)
         {
-            _currentWave = 0;
+            _currentWaveIdx = 0;
+            if (_currentWave != null)
+                _currentWave.ClearEnemies();
+            _currentWave = null;
             SpawnNextWave();
         }
 
@@ -49,11 +53,11 @@ namespace Spawning
 
         private void SpawnNextWave()
         {
-            if (_currentWave >= waves.Count) return;
+            if (_currentWaveIdx >= waves.Count) return;
             
-            var wave = waves[_currentWave].GetRandom();
-            wave.Spawn(player);
-            ++_currentWave;
+            _currentWave = waves[_currentWaveIdx].GetRandom();
+            _currentWave.Spawn(player);
+            ++_currentWaveIdx;
         }
     }
 }
