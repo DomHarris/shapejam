@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class E03 : MonoBehaviour
@@ -5,6 +7,7 @@ public class E03 : MonoBehaviour
     [Header("Lazer")]
     [SerializeField] private Transform lazerObj;
     [SerializeField] private Transform lazerParent;
+    [SerializeField] private float reloadTime = 0.5f;
 
     [Header("Timer")] 
     private float _timer;
@@ -13,14 +16,27 @@ public class E03 : MonoBehaviour
     [Header("Rotation")]
     [SerializeField] private float rotationSpeed;
     [SerializeField] bool canRotate = true;
+
+    [SerializeField] private new ParticleSystem particleSystem;
+
+    private void Start()
+    {
+        _timer = 0;
+    }
+
     private void Update()
     {
         if (canRotate) RotateParent();
-        SeekPlayer();
+        else
+        {
+            _timer += 1 * Time.deltaTime;
+            if (_timer >= maxTimer) StartCoroutine(StartEnemyAttack());
+        }
     }
     void RotateParent()
     {
         lazerParent.Rotate(new Vector3(0, 0, rotationSpeed * Time.deltaTime));
+        SeekPlayer();
     }
     void SeekPlayer()
     {
@@ -29,11 +45,13 @@ public class E03 : MonoBehaviour
         if (enemyRaycast.collider != null && enemyRaycast.collider.gameObject.CompareTag("Player"))
         {
             Debug.Log("Lazer has hit player.");
-            FireLazer();
+            canRotate = false;
         }
     }
-    void FireLazer()
+
+    IEnumerator StartEnemyAttack()
     {
-        canRotate = false;
+        // Put bullet attack code here.
+        yield return new WaitForSeconds(reloadTime);
     }
 }
