@@ -233,9 +233,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lazerObj: {fileID: 7194952883185831968}
   lazerParent: {fileID: 9198711249004739661}
+  reloadTime: 0.5
   maxTimer: 3
   rotationSpeed: 30
   canRotate: 1
+  particleSystem: {fileID: 5125782326429886071}
+  tokenHolder: {fileID: 11400000, guid: dd76f5a0732034cdb87e3b9d73a027ee, type: 2}
+  attackPriority: 2
 --- !u!1 &4893364653056856679
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,7 +253,6 @@ GameObject:
   - component: {fileID: 6381561942927964406}
   - component: {fileID: 7266467549164591311}
   - component: {fileID: 2996103347637258514}
-  - component: {fileID: 4261780373251840160}
   m_Layer: 7
   m_Name: Bullets
   m_TagString: Untagged
@@ -5092,7 +5095,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a5d05bcde04e7fa87cc351162607a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHit: {fileID: 11400000, guid: 0382eadd8c1d945dca771ad858f5cad9, type: 2}
+  onHit: {fileID: 11400000, guid: 79a4e363ed0774dd5a67e12e724b744c, type: 2}
 --- !u!114 &2996103347637258514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5105,24 +5108,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946b5181fcbe41fdbaa88b0e7ea34030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDamage: {fileID: 11400000, guid: 5e064a8153f104bc1abc9d85be6f3012, type: 2}
-  maxDamage: {fileID: 11400000, guid: ed1749a2dd3304ff0acb659a3f7409bd, type: 2}
-  minSize: 0.5
-  maxSize: 0.9
---- !u!114 &4261780373251840160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4893364653056856679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3de719d359db41d48b157a65921559d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hitParticles: {fileID: 0}
-  numParticles: 30
+  minDamage: {fileID: 11400000, guid: ac1f9b78e3e514d52aac0241e1bf5e65, type: 2}
+  maxDamage: {fileID: 11400000, guid: ac1f9b78e3e514d52aac0241e1bf5e65, type: 2}
+  minSize: 0
+  maxSize: 0
 --- !u!1 &7764417886966382495
 GameObject:
   m_ObjectHideFlags: 0

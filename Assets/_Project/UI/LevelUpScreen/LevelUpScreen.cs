@@ -42,9 +42,11 @@ namespace UI.LevelUpScreen
         private Dictionary<int, PlayerAbility> _currentAbilities = new();
 
         private List<PlayerAbility> _activeAbilities = new();
+        private List<PlayerAbility> _startingAbilities = new();
          
         private void Start()
         {
+            _startingAbilities = new List<PlayerAbility>(abilities);
             foreach (var text in availablePowers)
             {
                 text.text = "";
@@ -60,6 +62,7 @@ namespace UI.LevelUpScreen
         {
             foreach (var ability in _activeAbilities)
                 ability.Teardown();
+            abilities = new List<PlayerAbility>(_startingAbilities);
             _activeAbilities.Clear();
         }
 

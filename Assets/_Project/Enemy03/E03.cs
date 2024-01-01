@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
+using Enemies;
 using UnityEngine;
 
-public class E03 : MonoBehaviour
+public class E03 : MonoBehaviour, ITokenUser
 {
     [Header("Lazer")]
     [SerializeField] private Transform lazerObj;
@@ -18,6 +19,10 @@ public class E03 : MonoBehaviour
     [SerializeField] bool canRotate = true;
 
     [SerializeField] private new ParticleSystem particleSystem;
+    [SerializeField] private AttackTokenHolder tokenHolder;
+    [SerializeField] private int attackPriority = 2;
+
+    private AttackToken _token;
 
     private void Start()
     {
@@ -51,7 +56,23 @@ public class E03 : MonoBehaviour
 
     IEnumerator StartEnemyAttack()
     {
-        // Put bullet attack code here.
+        // try to shoot, if it was unsuccessful, don't do anything else
+        if (!Shoot()) yield break;
+        
         yield return new WaitForSeconds(reloadTime);
+    }
+    
+    bool Shoot()
+    {
+        _token = tokenHolder.RequestToken(attackPriority, this);
+        if (_token == null)
+            return false; // didn't shoot
+
+        particleSystem.Emit(1);
+        return true; // did shoot
+    }
+    public void StealToken()
+    {
+        // unused
     }
 }
