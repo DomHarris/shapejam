@@ -1,6 +1,5 @@
 using Entity;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class E02 : MonoBehaviour, IHit
 {
@@ -16,6 +15,11 @@ public class E02 : MonoBehaviour, IHit
         spriteRenderer.color = defaultColor;
     }
 
+    private void Update()
+    {
+        if (_activateEnemy) ShootBullet();
+    }
+
     public void Hit(float damage)
     {
         if (!_activateEnemy)
@@ -23,5 +27,10 @@ public class E02 : MonoBehaviour, IHit
             spriteRenderer.color = hitColor;
             _activateEnemy = true;
         }
+    }
+
+    void ShootBullet()
+    {
+        
     }
 }
