@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8642721420916094217}
   - component: {fileID: 4546320887925961572}
   - component: {fileID: 7505072233668025310}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: E02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,8 +110,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410b77bc482044e4eaf04cce9c9cf5d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 1, g: 1, b: 1, a: 1}
-  hitColor: {r: 0, g: 0.31960154, b: 1, a: 1}
+  playerPosition: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}
+  attackMode: 0
+  minimum: 1
+  maximum: 2
   spriteRenderer: {fileID: 602325344519776584}
 --- !u!1 &6075063871165327193
 GameObject:
@@ -123,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1013485338376914300}
   - component: {fileID: 602325344519776584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
