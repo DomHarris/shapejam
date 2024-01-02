@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5929274824004495818}
   - component: {fileID: 1143742875653641214}
+  - component: {fileID: 5315500328138187718}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -205,6 +206,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5315500328138187718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6291133687148502903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4675c217dae42198c4174f59565d0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit: {fileID: 11400000, guid: 0382eadd8c1d945dca771ad858f5cad9, type: 2}
+  flashTime: 0.1
+  color: {r: 1.1892071, g: 1.1892071, b: 1.1892071, a: 1}
 --- !u!1 &6845477310267259537
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,8 +380,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxDistanceToPlayer: 5
-  speed: 20
-  directionFrequency: 0.1
+  speed: 15
+  directionFrequency: 0.4
   playerPosition: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}
 --- !u!114 &1695716983634196244
 MonoBehaviour:
@@ -385,13 +401,13 @@ MonoBehaviour:
   bullets: {fileID: 848514819283050051}
   spikesMinSize: 0.85
   attackChance: 0.005
-  wanderTime: 2
+  wanderTime: 3
   tokenHolder: {fileID: 11400000, guid: dd76f5a0732034cdb87e3b9d73a027ee, type: 2}
   attackPriority: 5
   wander: {fileID: 4128540955597286223}
   damage: {fileID: 2594939326310385933}
   health: {fileID: 1925630547768001682}
-  minClosedTime: 2
+  minClosedTime: 1
 --- !u!114 &2594939326310385933
 MonoBehaviour:
   m_ObjectHideFlags: 0

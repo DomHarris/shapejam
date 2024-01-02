@@ -14,6 +14,8 @@ namespace Player
             maxScale = 2f, 
             compressScale = 0.5f;
 
+        [SerializeField, ColorUsage(true, true)] private Color minColor, maxColor;
+        private SpriteRenderer _spriteRenderer;
         // Private fields
         private PlayerShoot _shoot;
         private float _scale;
@@ -24,6 +26,7 @@ namespace Player
         /// </summary>
         private void Start()
         {
+            _spriteRenderer = GetComponent<SpriteRenderer>();
             _scale = transform.localScale.x;
             _shoot = FindFirstObjectByType<PlayerShoot>();
             _shoot.Charge += OnCharge;
@@ -49,6 +52,7 @@ namespace Player
             transform.localScale = Vector3.one * compressScale;
             transform.DOScale(_scale, _shoot.ChargeDelay)
                 .SetEase(Ease.OutQuint);
+            _spriteRenderer.color = minColor;
         }
 
         /// <summary>
@@ -59,6 +63,7 @@ namespace Player
         {
             // scale the object based on the charge
             transform.localScale = Vector3.one * Mathf.Lerp(minScale, maxScale, percent);
+            _spriteRenderer.color = Color.Lerp(minColor, maxColor, percent);
         }
     }
 }

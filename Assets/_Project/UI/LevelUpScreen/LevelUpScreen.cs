@@ -68,6 +68,7 @@ namespace UI.LevelUpScreen
 
         private void OnShow(EventParams data)
         {
+            if (data is not ExperienceParams { CurrentLevel: > 1 }) return;
             _currentAbilities.Clear();
             for (var i = 0; i < availablePowers.Length; i++)
             {

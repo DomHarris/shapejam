@@ -192,6 +192,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701968552969027476}
   - component: {fileID: 1046252430072044706}
+  - component: {fileID: 4061159607569699638}
   m_Layer: 8
   m_Name: pentagon
   m_TagString: Untagged
@@ -268,3 +269,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4061159607569699638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7313010647674094933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4675c217dae42198c4174f59565d0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onHit: {fileID: 11400000, guid: 0382eadd8c1d945dca771ad858f5cad9, type: 2}
+  flashTime: 0.1
+  color: {r: 1.1892071, g: 1.1892071, b: 1.1892071, a: 1}

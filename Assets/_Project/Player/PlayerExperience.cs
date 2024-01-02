@@ -11,6 +11,7 @@ namespace Player
     {
         public int CurrentLevel;
         public GameObject Player;
+        public PlayerExperience Experience;
     }
     
     /// <summary>
@@ -23,6 +24,8 @@ namespace Player
         private Stat experienceMultiplier;
         [SerializeField, Tooltip("An event to run when the player levels up")] 
         private EventAction onLevelUp;
+        [SerializeField, Tooltip("An event to run when the player gains exp")] 
+        private EventAction onExpGain;
         [SerializeField, Tooltip("The thresholds for levelling up")] 
         private float[] experienceThresholds;
 
@@ -48,6 +51,19 @@ namespace Player
         {
             onGameStart -= OnGameStart;
         }
+        
+        public float GetExpToNextLevel()
+        {
+            return experienceThresholds[_currentLevel - 1] - _currentExperience;
+        }
+
+        public float GetExpForNextLevel()
+        {
+            if (_currentLevel < 2)
+                return experienceThresholds[_currentLevel-1];
+            
+            return experienceThresholds[_currentLevel - 1] - experienceThresholds[_currentLevel - 2];
+        }
 
         private void OnGameStart(EventParams obj)
         {
@@ -55,6 +71,16 @@ namespace Player
             _currentLevel = 1;
             _currentExperience = 0f;
             gameObject.SetActive(true);
+
+            var expParams = new ExperienceParams
+            {
+                CurrentLevel = _currentLevel,
+                Player = gameObject,
+                Experience = this
+            };
+            // Invoke the events
+            onExpGain.TriggerAction(expParams);
+            onLevelUp.TriggerAction(expParams);
         }
 
         /// <summary>
@@ -65,6 +91,16 @@ namespace Player
         {
             // Add the experience using the multiplier
             _currentExperience += experienceToAdd * experienceMultiplier;
+            
+            
+            // Invoke the event
+            onExpGain.TriggerAction(new ExperienceParams
+            {
+                CurrentLevel = _currentLevel,
+                Player = gameObject,
+                Experience = this
+            });
+            
             // Check if the player has levelled up
             if (_currentLevel < experienceThresholds.Length && _currentExperience >= experienceThresholds[_currentLevel - 1])
             {
@@ -75,7 +111,8 @@ namespace Player
                 onLevelUp.TriggerAction(new ExperienceParams
                 {
                     CurrentLevel = _currentLevel,
-                    Player = gameObject
+                    Player = gameObject,
+                    Experience = this
                 });
             }
         }

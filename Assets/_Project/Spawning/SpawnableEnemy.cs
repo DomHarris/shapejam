@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Entity;
 using UnityEngine;
 
@@ -20,7 +21,14 @@ namespace Spawning
         {
             _health.OnDie -= Die;
         }
-        
+
+        private void OnEnable()
+        {
+            transform.localScale = Vector3.zero;
+            transform.DOScale(1, 0.5f)
+                .SetEase(Ease.OutBack);
+        }
+
         public void Die()
         {
             OnDeath?.Invoke(this);

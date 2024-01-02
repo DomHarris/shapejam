@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Player;
 using Stats;
 using TMPro;
 using UnityEngine;
@@ -40,6 +41,9 @@ namespace UI.LevelUpScreen
 
         private void OnShow(EventParams data)
         {
+            
+            if (data is ExperienceParams { CurrentLevel: <= 1 }) return;
+            
             canvas.blocksRaycasts = true;
             Time.timeScale = 0f;
             DOVirtual.Float(0, 1, animateTime, val => postProcessing.weight = val)

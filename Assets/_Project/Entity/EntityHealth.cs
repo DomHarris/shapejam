@@ -30,7 +30,8 @@ namespace Entity
         // Events
         public event Action OnHit;
         public event Action OnDie;
-        
+
+        public float CurrentHealth => _currentHealth;
         // Private fields
         private float _currentHealth;
         
@@ -45,6 +46,9 @@ namespace Entity
         private void OnEnable()
         {
             _currentHealth = MaxHealth;
+            if (onHit != null)
+                onHit.TriggerAction(new HitParams { Object = gameObject, Damage = 0, CurrentHealthPercentage = _currentHealth / maxHealth});
+            OnHit?.Invoke();
         }
 
         public void SetDeathEvent (EventAction newEvent)
