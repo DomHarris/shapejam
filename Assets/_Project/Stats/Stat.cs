@@ -57,6 +57,11 @@ namespace Stats
         {
             _modifiers.RemoveAt(index);
         }
+
+        public void ClearModifiers()
+        {
+            _modifiers.Clear();
+        }
         
         /// <summary>
         /// Implicitly convert the stat to a float

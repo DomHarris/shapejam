@@ -13,6 +13,7 @@ namespace Spawning
         [SerializeField] private Transform player;
         [SerializeField] private EventAction onWaveEnded;
         [SerializeField] private EventAction onGameStarted;
+        [SerializeField] private Stat[] enemyHealthStats;
         
         private int _currentWaveIdx;
         private Wave _currentWave;
@@ -25,6 +26,8 @@ namespace Spawning
 
         private void GameStarted(EventParams obj)
         {
+            foreach (var health in enemyHealthStats)
+                health.ClearModifiers();
             _currentWaveIdx = 0;
             if (_currentWave != null)
                 _currentWave.ClearEnemies();
@@ -40,7 +43,6 @@ namespace Spawning
 
         private async void OnWaveEnded(EventParams data)
         {
-            if (data is not WaveParams) return;
             var timer = timeBetweenWaves;
             while (timer > 0)
             {
@@ -53,11 +55,13 @@ namespace Spawning
 
         private void SpawnNextWave()
         {
-            if (_currentWaveIdx >= waves.Count) return;
-            
             _currentWave = waves[_currentWaveIdx].GetRandom();
             _currentWave.Spawn(player);
             ++_currentWaveIdx;
+            if (_currentWaveIdx >= waves.Count)
+                foreach (var health in enemyHealthStats)
+                    health.AddModifier(1.1f, ModifierType.Multiply);
+            _currentWaveIdx %= waves.Count;
         }
     }
 }

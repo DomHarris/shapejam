@@ -13276,10 +13276,31 @@ MonoBehaviour:
   waves:
   - waves:
     - {fileID: 11400000, guid: 264af080fd13d4d2e81549065d35f284, type: 2}
+    - {fileID: 11400000, guid: b6ada13889a9d43e79ccb033761fbeb4, type: 2}
+    - {fileID: 11400000, guid: db32d501c154e4ee49bcfd237eb3ee37, type: 2}
+  - waves:
+    - {fileID: 11400000, guid: 523e034a315eb4b8882dd4d74b4c1dfe, type: 2}
+    - {fileID: 11400000, guid: 919347f7bb9db4996947350a2299b08d, type: 2}
+    - {fileID: 11400000, guid: 7fbfae8c947fa469a8e9723bca44a581, type: 2}
+    - {fileID: 11400000, guid: fedfb535bca3a4f8e8f370226f3d7bc8, type: 2}
+    - {fileID: 11400000, guid: d99cf9c13d941435cb10e206ed53de06, type: 2}
+  - waves:
+    - {fileID: 11400000, guid: 8f56cf5498b9a4ccdad1ed7118c0f087, type: 2}
+    - {fileID: 11400000, guid: 1aa1ba84c828144f8b9874bdf47a9566, type: 2}
+    - {fileID: 11400000, guid: 2fbb490fca717491da50f891271c3dbc, type: 2}
+    - {fileID: 11400000, guid: 35b4f1f29e1bb456aa4c173f7fa49840, type: 2}
+    - {fileID: 11400000, guid: 4804988aacd534dddb9193989d25876a, type: 2}
+  - waves:
+    - {fileID: 11400000, guid: 97f428848d3834f468e6553314ff2e98, type: 2}
   timeBetweenWaves: 1
   player: {fileID: 1958221524}
   onWaveEnded: {fileID: 11400000, guid: ea13421ccfe53420b959cb2a68255ec2, type: 2}
   onGameStarted: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
+  enemyHealthStats:
+  - {fileID: 11400000, guid: 50a48de1b730544a39d19ef534fd46bb, type: 2}
+  - {fileID: 11400000, guid: fdae54a585c899543ad5d90a8a6b4146, type: 2}
+  - {fileID: 11400000, guid: 690a87c81099e4b4186506f45584041a, type: 2}
+  - {fileID: 11400000, guid: 1d6b96a501ebf40a7ae75c41dd447482, type: 2}
 --- !u!4 &1329561568
 Transform:
   m_ObjectHideFlags: 0

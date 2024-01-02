@@ -19,7 +19,7 @@ public class ContactDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.relativeVelocity.sqrMagnitude < _minSpeedSqr) return;
+        if (other.relativeVelocity.sqrMagnitude < _minSpeedSqr || _health == null) return;
         _health.Hit(damage);
     }
 }
