@@ -20,6 +20,7 @@ namespace Player
         [SerializeField] private float minStartSize = 5f;
         [SerializeField] private float maxStartSize = 10f;
         [SerializeField] private Stat chargeTime;
+        [SerializeField] private AudioClip clip;
 
         [SerializeField] private Stat chargeDelay;
         
@@ -31,6 +32,7 @@ namespace Player
         private Vector2 _target;
         private float _chargeTimer = 0f;
         private bool _canFireCharged = true;
+        private AudioSource _source;
         
         // Private fields: object references
         private ParticleSystem _particles;
@@ -55,6 +57,7 @@ namespace Player
         {
             _particles = GetComponent<ParticleSystem>();
             _input = GetComponentInParent<PlayerInput>();
+            _source = GetComponent<AudioSource>();
             _input.actions["Fire"].performed += OnFire;
         }
 
@@ -92,6 +95,8 @@ namespace Player
             if (!_canFire) return;
 
             if (!_canFireCharged) _chargeTimer = 0;
+            
+            _source.PlayOneShot(clip);
             
             // Emit a single particle with a new start size
             // The start size is lerped between the max and min start size based on the charge timer
