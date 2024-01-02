@@ -27,20 +27,10 @@ public class E03 : MonoBehaviour, ITokenUser
     [SerializeField] private AttackTokenHolder tokenHolder;
     [SerializeField] private int attackPriority = 2;
 
-    [Header("Post Processing")] 
-    [SerializeField] Volume postProcessingVolume;
-
-    [SerializeField] private float bloomMinimum = 0.0f;
-    [SerializeField] private float bloomMaximum = 0.9f;
-    [SerializeField] private float bloomTime = 0.5f;
-
-    private Bloom _bloom;
-
     private AttackToken _token;
 
     private void Start()
     {
-        postProcessingVolume.profile.TryGet(out _bloom);
         _timer = 0;
     }
     private void Update()

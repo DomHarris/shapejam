@@ -1,36 +1,19 @@
-using Entity;
+using System;
+using Enemies;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
-public class E02 : MonoBehaviour, IHit
+public class E02 : MonoBehaviour
 {
-    [SerializeField] private Color defaultColor;
-    [SerializeField] private Color hitColor;
-    [SerializeField] SpriteRenderer spriteRenderer;
-
+    [SerializeField] private SerialPosition playerPosition;
     private bool _activateEnemy;
-    // Start is called before the first frame update
-    void Start()
-    {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        spriteRenderer.color = defaultColor;
-    }
-
-    private void Update()
-    {
-        if (_activateEnemy) ShootBullet();
-    }
-
-    public void Hit(float damage)
-    {
-        if (!_activateEnemy)
-        {
-            spriteRenderer.color = hitColor;
-            _activateEnemy = true;
-        }
-    }
-
-    void ShootBullet()
-    {
-        
-    }
+    private Vector2 _playerPos;
+    private Vector2 _enemyPos;
+    [SerializeField] private bool attackMode;
+    private bool _isMoving;
+    [SerializeField] private float minimum = 1;
+    [SerializeField] private float maximum = 5;
+    [SerializeField] SpriteRenderer spriteRenderer;
+    
+    
 }
