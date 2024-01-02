@@ -39,7 +39,6 @@ public class E03 : MonoBehaviour, ITokenUser
         else if (_canAttack)
         {
             _timer += 1 * Time.deltaTime;
-            Debug.Log("Timer: " + _timer);
             if (_timer >= maxTimer) StartCoroutine(StartEnemyAttack());
         }
     } 
