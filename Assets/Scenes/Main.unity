@@ -19339,16 +19339,16 @@ MonoBehaviour:
   experienceMultiplier: {fileID: 11400000, guid: 9d8ea3c665d214502a38bcb092bf153e, type: 2}
   onLevelUp: {fileID: 11400000, guid: 14c3cfa2d79a0428dac403f49e2c574e, type: 2}
   experienceThresholds:
-  - 10
-  - 20
-  - 40
-  - 80
-  - 160
-  - 320
-  - 640
-  - 1280
-  - 2560
+  - 25
+  - 51
+  - 79
+  - 122
+  - 189
+  - 294
+  - 458
   - 5120
+  - 1123
+  - 1766
   onGameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!114 &1958221534
 MonoBehaviour:
