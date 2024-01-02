@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c92d8747203654cd495edbcc0f5d4ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDistanceToPlayer: 10
+  maxDistanceToPlayer: 8
   speed: 5
   directionFrequency: 0.1
   playerPosition: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}

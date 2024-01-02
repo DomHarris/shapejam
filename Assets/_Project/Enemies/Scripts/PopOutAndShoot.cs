@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DG.Tweening;
 using Enemies;
+using Entity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -20,6 +21,7 @@ public class PopOutAndShoot : MonoBehaviour, ITokenUser
     [SerializeField] private int attackPriority = 5;
     [SerializeField] private MonoBehaviour wander;
     [SerializeField] private ContactDamage damage;
+    [SerializeField] private EntityHealth health;
     [SerializeField] private float minClosedTime = 2f;
 
     private AttackToken _token;
@@ -57,6 +59,7 @@ public class PopOutAndShoot : MonoBehaviour, ITokenUser
         _open = true;
         wander.enabled = true;
         damage.enabled = true;
+        health.enabled = true;
         spikes.DOScale(1f, 0.2f)
             .SetEase(Ease.OutBack)
             .OnComplete(() => bullets.Emit(8));
@@ -85,6 +88,7 @@ public class PopOutAndShoot : MonoBehaviour, ITokenUser
             tokenHolder.ReturnToken(_token);
         damage.enabled = false;
         wander.enabled = false;
+        health.enabled = false;
         spikes.DOScale(spikesMinSize, 0.2f)
             .SetEase(Ease.OutQuint);
         foreach (var t in _sprites)

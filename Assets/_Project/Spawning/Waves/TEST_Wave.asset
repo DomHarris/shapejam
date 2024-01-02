@@ -26,7 +26,7 @@ MonoBehaviour:
   - {fileID: 337672773568082331, guid: b6c3b108835e84cbdada77352d461b51, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
-  - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
+  - {fileID: 1154542002221674638, guid: aa1445d4ed9434266a9a4b1d9ec294c8, type: 3}
   pattern: 0
   radius: 10
   radiusThickness: 0.5

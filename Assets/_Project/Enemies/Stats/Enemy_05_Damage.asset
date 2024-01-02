@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94ef118ed9b34aa88f7aaf6ee817777d, type: 3}
-  m_Name: HeavyAttacks
+  m_Script: {fileID: 11500000, guid: e598248d769c04b00b9f5ceefdabb732, type: 3}
+  m_Name: Enemy_05_Damage
   m_EditorClassIdentifier: 
-  maxTokens: 2
-  gameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
+  <InitialValue>k__BackingField: 5
