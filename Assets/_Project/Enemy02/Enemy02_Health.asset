@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e598248d769c04b00b9f5ceefdabb732, type: 3}
-  m_Name: Enemy_03_Damage
+  m_Name: Enemy02_Health
   m_EditorClassIdentifier: 
   <InitialValue>k__BackingField: 3
