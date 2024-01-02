@@ -12875,6 +12875,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: E02
       objectReference: {fileID: 0}
+    - target: {fileID: 406265855462495942, guid: 84ca68f30893ac946bf7a879e2390f83, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1485666804763725466, guid: 84ca68f30893ac946bf7a879e2390f83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.55
@@ -13439,7 +13443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1329561567
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13454,23 +13458,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - waves:
-    - {fileID: 11400000, guid: 264af080fd13d4d2e81549065d35f284, type: 2}
-    - {fileID: 11400000, guid: b6ada13889a9d43e79ccb033761fbeb4, type: 2}
-    - {fileID: 11400000, guid: db32d501c154e4ee49bcfd237eb3ee37, type: 2}
-  - waves:
-    - {fileID: 11400000, guid: 523e034a315eb4b8882dd4d74b4c1dfe, type: 2}
-    - {fileID: 11400000, guid: 919347f7bb9db4996947350a2299b08d, type: 2}
-    - {fileID: 11400000, guid: 7fbfae8c947fa469a8e9723bca44a581, type: 2}
-    - {fileID: 11400000, guid: fedfb535bca3a4f8e8f370226f3d7bc8, type: 2}
-    - {fileID: 11400000, guid: d99cf9c13d941435cb10e206ed53de06, type: 2}
-  - waves:
-    - {fileID: 11400000, guid: 8f56cf5498b9a4ccdad1ed7118c0f087, type: 2}
-    - {fileID: 11400000, guid: 1aa1ba84c828144f8b9874bdf47a9566, type: 2}
-    - {fileID: 11400000, guid: 2fbb490fca717491da50f891271c3dbc, type: 2}
-    - {fileID: 11400000, guid: 35b4f1f29e1bb456aa4c173f7fa49840, type: 2}
-    - {fileID: 11400000, guid: 4804988aacd534dddb9193989d25876a, type: 2}
-  - waves:
-    - {fileID: 11400000, guid: 97f428848d3834f468e6553314ff2e98, type: 2}
+    - {fileID: 11400000, guid: 8ab6766dd25f5c844980cc248de67d89, type: 2}
+    - {fileID: 11400000, guid: 8ab6766dd25f5c844980cc248de67d89, type: 2}
+    - {fileID: 11400000, guid: 8ab6766dd25f5c844980cc248de67d89, type: 2}
+    - {fileID: 11400000, guid: 8ab6766dd25f5c844980cc248de67d89, type: 2}
   timeBetweenWaves: 1
   player: {fileID: 1958221524}
   onWaveEnded: {fileID: 11400000, guid: ea13421ccfe53420b959cb2a68255ec2, type: 2}
@@ -19328,6 +19319,10 @@ PrefabInstance:
     - target: {fileID: 4605275909966508958, guid: 444a917ce27197340b13b38019d73cb1, type: 3}
       propertyPath: m_Name
       value: E03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4605275909966508958, guid: 444a917ce27197340b13b38019d73cb1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

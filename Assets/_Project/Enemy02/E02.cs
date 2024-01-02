@@ -33,6 +33,8 @@ public class E02 : MonoBehaviour, ITokenUser
     [FormerlySerializedAs("_enemyChargingColor")] [SerializeField] Color enemyChargingColor;
 
     private bool _updateFireAngle = true;
+
+    [SerializeField] private bool useEnemyChargeColour;
     private void Start()
     {
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
@@ -49,7 +51,7 @@ public class E02 : MonoBehaviour, ITokenUser
         float characterDistance = (_playerPos - transform.position).sqrMagnitude;
         if (characterDistance > playerDistance)
         {
-            if (spriteRenderer.enabled) spriteRenderer.enabled = false;
+            // if (spriteRenderer.enabled) spriteRenderer.enabled = false;
             transform.position = Vector2.MoveTowards(transform.position, _playerPos, enemySpeed * Time.deltaTime);
         }
         else if (characterDistance < playerDistance && characterDistance > retreatDistance)
@@ -76,7 +78,7 @@ public class E02 : MonoBehaviour, ITokenUser
     }
     IEnumerator AttackPlayer()
     {
-        spriteRenderer.color = enemyChargingColor;
+        if (useEnemyChargeColour) spriteRenderer.color = enemyChargingColor;
         _isAttackingPlayer = true;
         _updateFireAngle = false;
         yield return new WaitForSeconds(attackDelay);

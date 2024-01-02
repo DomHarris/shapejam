@@ -244,10 +244,6 @@ MonoBehaviour:
   particleSystem: {fileID: 5125782326429886071}
   tokenHolder: {fileID: 11400000, guid: dd76f5a0732034cdb87e3b9d73a027ee, type: 2}
   attackPriority: 2
-  postProcessingVolume: {fileID: 0}
-  bloomMinimum: 0
-  bloomMaximum: 0.9
-  bloomTime: 0.5
 --- !u!114 &2941618996561747563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583e1f78e6bf486ea5818a081a8ba6f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experienceToAdd: 10
+  experienceToAdd: 5
 --- !u!1 &4893364653056856679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5355,7 +5351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 85d7a08e20f3342419967adee9fcdf2a, type: 3}
-  m_Color: {r: 0, g: 0.62352943, b: 0.99215686, a: 1}
+  m_Color: {r: 1, g: 0.5372549, b: 0.3764706, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
