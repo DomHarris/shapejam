@@ -13,6 +13,7 @@ namespace Entity
     {
         public GameObject Object;
         public float Damage;
+        public float CurrentHealthPercentage;
     }
     /// <summary>
     /// Track the health of an entity
@@ -57,16 +58,18 @@ namespace Entity
         /// <param name="damage">The amount of damage from the hit</param>
         public void Hit(float damage)
         {
+            // don't get hit if this object is disabled
+            if (!enabled) return;
             _currentHealth -= damage;
             if (onHit != null)
-                onHit.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+                onHit.TriggerAction(new HitParams { Object = gameObject, Damage = damage, CurrentHealthPercentage = _currentHealth / maxHealth});
             OnHit?.Invoke();
             
             if (_currentHealth <= 0)
             {
                 OnDie?.Invoke();
                 if (Die != null) 
-                    Die.TriggerAction(new HitParams { Object = gameObject, Damage = damage });
+                    Die.TriggerAction(new HitParams { Object = gameObject, Damage = damage, CurrentHealthPercentage = _currentHealth / maxHealth});
             }
         }
     }
