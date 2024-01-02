@@ -19,18 +19,18 @@ MonoBehaviour:
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
+  - {fileID: 337672773568082331, guid: b6c3b108835e84cbdada77352d461b51, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
+  - {fileID: 337672773568082331, guid: b6c3b108835e84cbdada77352d461b51, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
-  - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
-  - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
-  - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
+  - {fileID: 2579834031781662011, guid: 444a917ce27197340b13b38019d73cb1, type: 3}
   - {fileID: -8262466711817566549, guid: 0a27eafbfae3a4134a16867fe81f56c7, type: 3}
   pattern: 0
-  radius: 5
-  radiusThickness: 0
+  radius: 10
+  radiusThickness: 0.5
   offset: {x: 0, y: 0, z: 0}
   onWaveSpawned: {fileID: 11400000, guid: ea13421ccfe53420b959cb2a68255ec2, type: 2}
   onEnemySpawned: {fileID: 11400000, guid: 47aef4954aa724e6989382d4be0250e1, type: 2}
