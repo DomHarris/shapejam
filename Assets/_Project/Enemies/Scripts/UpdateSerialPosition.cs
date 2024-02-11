@@ -10,7 +10,6 @@ namespace Enemies
         private void Update()
         {
             position.SetPosition(transform.position);
-            Debug.Log(transform.position);
         }
     }
 }

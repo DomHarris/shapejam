@@ -2302,7 +2302,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: 0c3636287f08f4296ab2d5927f30d025, type: 3}
   m_Resource: {fileID: 8300000, guid: 0c3636287f08f4296ab2d5927f30d025, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12564,7 +12564,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -13829,6 +13829,8 @@ GameObject:
   - component: {fileID: 1136280681}
   - component: {fileID: 1136280680}
   - component: {fileID: 1136280679}
+  - component: {fileID: 1136280683}
+  - component: {fileID: 1136280684}
   m_Layer: 5
   m_Name: MainUI
   m_TagString: Untagged
@@ -13925,6 +13927,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!225 &1136280683
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136280678}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &1136280684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136280678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19417ed6f3c704aaab1d144a908bfa9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!1 &1209035931
 GameObject:
   m_ObjectHideFlags: 0
@@ -14739,6 +14766,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c53581c0e12ac419f9e3e2203913bb61, type: 2}
   - {fileID: 11400000, guid: 7fffab0ca5e1d43c888ac5c1641ee5b6, type: 2}
   - {fileID: 11400000, guid: fb5c0857c14a54e5394c515ef81a0f6d, type: 2}
+  - {fileID: 11400000, guid: 396b30aa20c674fae9f1fcd7d7a9e96e, type: 2}
+  - {fileID: 11400000, guid: 713b4765b74e74e50bd6612ecbe6aec2, type: 2}
 --- !u!225 &1396949435
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -20317,13 +20346,13 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
         m_TargetAssemblyTypeName: Stats.EventAction, Assembly-CSharp
-        m_MethodName: TriggerAction
-        m_Mode: 1
+        m_MethodName: TriggerActionWithDelay
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
-          m_FloatArgument: 0
+          m_FloatArgument: 1
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2

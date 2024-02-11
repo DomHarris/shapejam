@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player.Abilities
@@ -14,6 +15,12 @@ namespace Player.Abilities
         
         [field: SerializeField, Tooltip("A short description to let the player know what the ability does")]
         public string Description { get; private set; }
+        
+        [field: SerializeField, Tooltip("The abilities to remove from the pool when this ability is equipped")]
+        public PlayerAbility[] AbilitiesToRemove { get; private set; } = Array.Empty<PlayerAbility>();
+        
+        [field: SerializeField, Tooltip("The abilities to add to the pool when this ability is equipped")]
+        public PlayerAbility[] AbilitiesToAdd { get; private set; } = Array.Empty<PlayerAbility>();
         
         /// <summary>
         /// Called when the ability is equipped

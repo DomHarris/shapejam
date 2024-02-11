@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Stats
@@ -27,6 +28,11 @@ namespace Stats
         public void TriggerAction()
         {
             ActionTriggered?.Invoke(null);
+        }
+
+        public void TriggerActionWithDelay(float delay)
+        {
+            DOVirtual.DelayedCall(delay, TriggerAction);
         }
         
         // operator override += to add a listener

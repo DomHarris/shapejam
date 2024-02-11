@@ -551,7 +551,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
         m_TargetAssemblyTypeName: Stats.EventAction, Assembly-CSharp
-        m_MethodName: TriggerAction
+        m_MethodName: TriggerActionWithDelay
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 344244772}
+        m_TargetAssemblyTypeName: ShowTitle, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -777,7 +789,6 @@ MonoBehaviour:
   - {fileID: 1108569671}
   - {fileID: 140597661}
   continueText: {fileID: 1501311723}
-  gameStart: {fileID: 11400000, guid: 45e19b68876084932b506b54c84f99ed, type: 2}
 --- !u!114 &344244773
 MonoBehaviour:
   m_ObjectHideFlags: 0
