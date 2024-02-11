@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Weight>k__BackingField: 1
   <OnlyOne>k__BackingField: 1
-  <Description>k__BackingField: faster delay before recharging
+  <Description>k__BackingField: faster reload delay
   stat: {fileID: 11400000, guid: 15e6c84aa13284dc58f72c276947e654, type: 2}
-  modifier: 0.75
+  modifier: 0.5
   type: 0

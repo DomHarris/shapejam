@@ -5160,7 +5160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c787108f63624c7db4ae261b48ad9334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CameraWeight>k__BackingField: 1
+  <CameraWeight>k__BackingField: 3
 --- !u!114 &3227456782354510268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5216,8 +5216,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  minDistance: 5
-  maxDistance: 10
+  minDistance: 4
+  maxDistance: 7
   playerPosition: {fileID: 11400000, guid: 36d0a2869b86d411996e65b5e7a975e8, type: 2}
 --- !u!114 &2550016377494506306
 MonoBehaviour:

@@ -30,7 +30,7 @@ namespace Enemies
             if (_maxDistSq < (playerPosition.Position - transform.position).sqrMagnitude)
             {
                 direction = (playerPosition.Position - transform.position).normalized;
-                _rigidbody.AddForce(direction * speed);
+                _rigidbody.AddForce(direction * (speed * 2));
             }
             
             var angle = PerlinHelper.GetPerlin(_seed, directionFrequency, 360) * Mathf.Deg2Rad;

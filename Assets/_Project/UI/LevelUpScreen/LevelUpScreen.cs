@@ -77,7 +77,11 @@ namespace UI.LevelUpScreen
                 if (!_currentAbilities.TryAdd(i, foundPower)) continue;
 
                 abilities.Remove(foundPower);
+                foreach (var remove in foundPower.AbilitiesToRemove)
+                    abilities.Remove(remove);
 
+                abilities.AddRange(foundPower.AbilitiesToAdd);
+                
                 availablePowers[i].text = foundPower.Description;
                 availablePowers[i].DOFade(1, textFadeTime)
                     .SetDelay(i * 0.25f)

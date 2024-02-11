@@ -19,8 +19,6 @@ public class ShowTitle : MonoBehaviour
     [SerializeField] private CanvasGroup[] buttons;
     
     [SerializeField] private TextMeshProUGUI continueText;
-
-    [SerializeField] private EventAction gameStart;
     
     private bool _pressedButton = false;
     
@@ -72,13 +70,11 @@ public class ShowTitle : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
-        gameStart.ActionTriggered += OnGameStart;
     }
 
-    private void OnGameStart(EventParams _)
+    public void Hide()
     {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("Main"));
-        gameStart.ActionTriggered -= OnGameStart;
         textCanvas.DOFade(0, 1f);
         background.DOSizeDelta(new Vector2(background.sizeDelta.x, 0), 1f)
             .SetEase(Ease.InOutQuint);

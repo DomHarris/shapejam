@@ -47,6 +47,12 @@ namespace Player
             _currentCharges = Mathf.RoundToInt(charges);
             ChargesChanged?.Invoke(_currentCharges / charges);
         }
+        
+        public void Refill()
+        {
+            _currentCharges = Mathf.RoundToInt(charges);
+            ChargesChanged?.Invoke(1);
+        }
 
         private void ChargesOnValueChanged()
         {

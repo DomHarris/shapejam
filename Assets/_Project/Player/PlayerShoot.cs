@@ -2,6 +2,7 @@ using System;
 using Stats;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -95,7 +96,8 @@ namespace Player
             if (!_canFire) return;
 
             if (!_canFireCharged) _chargeTimer = 0;
-            
+
+            _source.pitch = Random.Range(0.95f, 1.05f);
             _source.PlayOneShot(clip);
             
             // Emit a single particle with a new start size
